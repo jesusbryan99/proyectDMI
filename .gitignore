@@ -13,6 +13,9 @@ web-build/
 # macOS
 .DS_Store
 
+#Aplify
+/amplify
+
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
 amplify/.config/local-*
