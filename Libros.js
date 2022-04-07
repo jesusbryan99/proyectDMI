@@ -1,17 +1,18 @@
 import React, {useState, useEffect}from 'react';
-import { Text, View } from 'react-native';
-import {list, create, onCreate} from "../proyectDMI/src/services/todos";
+import { Text, View,ScrollView, TextInput,  Button } from 'react-native';
+import {list, create, onCreate} from "./src/services/todos";
 
 
  function Libros() {
   const [todos, setTodos] = useState();
+  const [todo, setTodo] = useState({ISBM: "",name: "",description: "",categoria: "", status: "", feacha: ""});
     async function listTodos() {
         const todosFetched = await list();
         if (todosFetched) setTodos(todosFetched); 
     }
  
-async function createTodo(name, description) {
-    const todoCreated = await create({name,description});
+async function createTodo(ISBM, name, description,categoria,status,feacha) {
+    const todoCreated = await create({ISBM,name,description,categoria,status,feacha});
     return todoCreated;   
 }
  
@@ -20,28 +21,37 @@ async function createTodo(name, description) {
     }
 
     const addData = ()=>{
-        createTodo("Hacer la tarea", " Tengo que hacer mi tarea");
+        createTodo(todo.ISBM, todo.name, todo.description, todo.categoria, todo.status, todo.feacha);
     }
+
 
     useEffect(()=>{
     listTodos();
     let subscription;
-    (async function suscribe(){
+    (async function subscribe(){
         subscription = await onCreate(onTodoCreated);
     })();
     return()=>{
-        subscription?.unsuscribe();
-    }
+        subscription?.unsubscribe();
+    };
 }, []);
-/*
-{todos && todos.map((todo)=> <text> key={todo.id} {`${todo.name}  ${todo.description}`}</text>)}
-*/
-
 
     return (
-        <View  style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Registro de libros</Text>
-        {todos && todos.map((todo)=> <text key={todo.id}>  {`${todo.name}  ${todo.description}`}</text>)}
+        
+        <View  style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor:"#ffffff" }}>
+            <Text style={{justifyContent:'center',fontSize:20}}>Ingrese los datos</Text>
+            <ScrollView>
+        
+        <TextInput onChangeText={(text)=> setTodo((current)=>({ ... current, ISBM: text}))} placeholder='ISBM' style={{width:300, height:25, backgroundColor:"#e8eaed", borderRadius:20, padding:20,margin:5}}/>
+        <TextInput onChangeText={(text)=> setTodo((current)=>({ ... current, name: text}))} placeholder='Name' style={{width:300, height:25, backgroundColor:"#e8eaed", borderRadius:20, padding:20,margin:5}}/>
+        <TextInput onChangeText={(text)=> setTodo((current)=>({ ... current, description: text}))} placeholder='Description' style={{width:300, height:25, backgroundColor:"#e8eaed", borderRadius:20, padding:20,margin:5}}/>
+        <TextInput onChangeText={(text)=> setTodo((current)=>({ ... current, categoria: text}))} placeholder='Category' style={{width:300, height:25, backgroundColor:"#e8eaed", borderRadius:20, padding:20,margin:5}}/>
+        <TextInput onChangeText={(text)=> setTodo((current)=>({ ... current, status: text}))} placeholder='status' style={{width:300, height:25, backgroundColor:"#e8eaed", borderRadius:20, padding:20,margin:5}}/>
+        <TextInput onChangeText={(text)=> setTodo((current)=>({ ... current, feacha: text}))} placeholder='Date' style={{width:300, height:25, backgroundColor:"#e8eaed", borderRadius:20, padding:20,margin:5}}/>
+        <Button onPress={addData} title="Titulo" style={{width:250, height:25, backgroundColor:"#cccccc", borderRadius:20, padding:20,margin:5}}/>
+        
+        </ScrollView>
+        
         </View>
         );
 }

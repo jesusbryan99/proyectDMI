@@ -12,12 +12,14 @@ const Home = () => {
   };
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
+      
+      <View style={styles.header} >
         <Text style={styles.headerText}>¡Bienvenido!</Text>
-        <Pressable style={styles.button} onPress={() => signOut()}>
+        
+      </View>
+      <Pressable style={styles.button} onPress={() => signOut()}>
           <Text style={styles.buttonText}>Sign out</Text>
         </Pressable>
-      </View>
     </View>
   );
 };

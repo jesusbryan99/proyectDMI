@@ -1,35 +1,35 @@
-import {API, graphqlOperation, graphqOperation} from "aws-amplify";
-import {getTodo, listTodos} from "../graphql/queries";
+import { API, graphqlOperation, graphqOperation } from "aws-amplify";
+import { getTodo, listTodos } from "../graphql/queries";
 import { createTodo, updateTodo, deleteTodo } from "../graphql/mutations";
-import {onCreateTodo} from "../graphql/subscriptions";
+import { onCreateTodo } from "../graphql/subscriptions";
 
-const list = async()=>{
-    try{
-        const todos = await API.graphql(graphqOperation(listTodos));
+const list = (async() => {
+    try {
+        const todos = await API.graphql(graphqlOperation(listTodos));
         return todos.data.listTodos.items;
-    }catch(error){
-        console.log({error});
+    } catch (error) {
+        console.log({ error });
     }
-};
+});
 
-const create = async(todo)=>{
+const create = (async(todo) => {
     try {
         const newTodo = await API.graphql(
-            graphqlOperation(createTodo,{input: todo})
+            graphqlOperation(createTodo, { input: todo })
         );
         return newTodo;
     } catch (error) {
-        console.log({error});
+        console.log({ error });
     }
-};
+});
 
-const onCreate = async(subscriptionFuncion)=>{
+const onCreate = (async(subscriptionFuncion) => {
     const subscription = API.graphql(graphqlOperation(onCreateTodo)).subscribe({
-        next: (todoData)=>{
+        next: (todoData) => {
             subscriptionFuncion();
         }
     });
     return subscription;
-}
-export {list, create,onCreate}
+});
 
+export { list, create, onCreate }
