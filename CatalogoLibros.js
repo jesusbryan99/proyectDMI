@@ -32,7 +32,13 @@ function CatalogoLibros() {
 return (
     <ScrollView>
 <View   style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor:"#ffffff", width:"100%"}}>
-<Text >Catalogo Libros</Text>
+<Text style={{
+    
+    fontSize: 23,
+    fontWeight: 'bold',
+    justifyContent: 'center',
+    paddingBottom:25,
+    }}>Catalogo Libros</Text>
 
 {todos && todos.map((todo)=> <Text key={todo.id} > 
         {` 
@@ -43,7 +49,10 @@ return (
         Status:${todo.status} 
         Fecha:${todo.feacha}         
         ` } 
-        <Button title='Delete' style={{backgroundColor:"#00000"}}/>
+
+        <Button title='Delete' style={{ backgroundColor: '#F80000',
+    padding: 10,
+    borderRadius: 6,}}/>
         </Text>)} 
 </View>
 </ScrollView>

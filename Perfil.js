@@ -30,23 +30,39 @@ function Perfil() {
 
 
 return (
-<View  style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor:"#ffffff"}}>
-<Text>Perfil</Text>
-<Button 
-    title="Seleccionar imagen"
-    onPress= {selectImage} 
-/>
+<View  style={{ alignItems: 'center', justifyContent: 'center', backgroundColor:"#ffffff"}}>
+<Text style={{
+    
+    fontSize: 23,
+    fontWeight: 'bold',
+    justifyContent: 'center',
+    paddingBottom: 5,
+    }}>Perfil</Text>
 
 <Image
     style={{
         alignSelf:'center',
-        height: 200,
-        width: 200,
-
+        height: 90,
+        width: 90,
+        borderRadius: 100,
+        marginBotton: 50,
     }}
+
+
     source={{uri: image}}
 
 />
+
+<Button 
+    title="Seleccionar imagen"
+    onPress= {selectImage} 
+/>
+<text>Nombre</text>
+<text>Jesus Bryan Gonzalez Delgado</text>
+<text>Grado y grupo</text>
+<text>10-A</text>
+<text>Link a git hub</text>
+<text></text>
 
 </View>
 )

@@ -40,11 +40,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerText: {
+    
     fontSize: 28,
     fontWeight: 'bold',
+    justifyContent: 'center',
   },
   button: {
-    backgroundColor: '#ff9900',
+    backgroundColor: '#F80000',
     padding: 10,
     borderRadius: 6,
   },
