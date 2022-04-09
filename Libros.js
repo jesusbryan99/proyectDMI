@@ -39,7 +39,7 @@ async function createTodo(ISBM, name, description,categoria,status,feacha) {
     return (
         
         <View  style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor:"#ffffff" }}>
-            <Text style={{justifyContent:'center',fontSize:20}}>Ingrese los datos</Text>
+            <Text style={{justifyContent:'center'}}>Ingrese los datos</Text>
             <ScrollView>
         
         <TextInput onChangeText={(text)=> setTodo((current)=>({ ... current, ISBM: text}))} placeholder='ISBM' style={{width:300, height:25, backgroundColor:"#e8eaed", borderRadius:20, padding:20,margin:5}}/>
