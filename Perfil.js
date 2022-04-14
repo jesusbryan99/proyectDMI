@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
-import {Text, View, Button, Image} from 'react-native';
-import {launchImageLibrary} from 'react-native-image-picker';
+import React from 'react'
+import {Text, View, Button, Image, TextInput} from 'react-native';
+//import {launchImageLibrary} from 'react-native-image-picker';
 function Perfil() {
     
-    const [image, setImage]= useState('https://via.placeholder.com/200');
+/*     const [image, setImage]= useState('https://via.placeholder.com/200');
 
     const selectImage = ()=>{
         
@@ -26,7 +26,7 @@ function Perfil() {
                 setImage(path)
             }
         });
-    }
+    }*/
 
 
 return (
@@ -46,24 +46,32 @@ return (
         width: 90,
         borderRadius: 100,
         marginBotton: 50,
+        backgroundColor: 'black',
     }}
 
 
-    source={{uri: image}}
+   // source={{uri: image}}
 
 />
 
 <Button 
     title="Seleccionar imagen"
-    onPress= {selectImage} 
+    //onPress= {selectImage()} 
 />
-<text>Nombre</text>
-<text>Jesus Bryan Gonzalez Delgado</text>
-<text>Grado y grupo</text>
-<text>10-A</text>
-<text>Link a git hub</text>
-<text></text>
 
+<Text style={{width:300, height:25, margin:5, fontSize: 17}}>Nombre:</Text>
+<TextInput style={{width:300, height:25, margin:5, fontSize: 17}}/>
+<Text style={{width:300, height:25,margin:5, fontSize: 17}}>Grado y grupo:</Text>
+<TextInput style={{width:300, height:25, margin:5, fontSize: 17}}/>
+<Text style={{width:300, height:25, margin:5, fontSize: 17}}>Link a github: </Text>
+<TextInput style={{width:300, height:25, margin:5, fontSize: 17}}/>
+
+<Button 
+    
+    title="Guardar cambios"
+    //onPress= {selectImage()} 
+/>
+<Text style={{paddingBottom:200}}></Text>
 </View>
 )
 }

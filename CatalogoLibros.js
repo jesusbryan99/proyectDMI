@@ -39,8 +39,8 @@ return (
     justifyContent: 'center',
     paddingBottom:25,
     }}>Catalogo Libros</Text>
-
-{todos && todos.map((todo)=> <Text key={todo.id} > 
+<Text>
+{todos && todos.map((todo)=> <Text key={todo.id} style={{flex:1, fontSize: 15, padding:10, width:250, borderColor:"#e8eaed"}}> 
         {` 
         ISBM: ${todo.ISBM}
         Name: ${todo.name} 
@@ -54,6 +54,7 @@ return (
     padding: 10,
     borderRadius: 6,}}/>
         </Text>)} 
+        </Text>
 </View>
 </ScrollView>
 )

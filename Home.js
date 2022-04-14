@@ -14,12 +14,15 @@ const Home = () => {
     <View style={styles.container}>
       
       <View style={styles.header} >
-        <Text style={styles.headerText}>¡Bienvenido!</Text>
+        <Text style={styles.headerText}>¡Bienvenido! Jesus</Text>
         
       </View>
+      <Text style={{paddingBottom:350}}></Text>
       <Pressable style={styles.button} onPress={() => signOut()}>
-          <Text style={styles.buttonText}>Sign out</Text>
+          <Text style={styles.buttonText}>cerrar sesion</Text>
+          
         </Pressable>
+        <Text style={{paddingBottom:1000}}></Text>
     </View>
   );
 };
@@ -40,7 +43,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerText: {
-    
+
     fontSize: 28,
     fontWeight: 'bold',
     justifyContent: 'center',
